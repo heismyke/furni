@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furni.shop</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10  py-5 mx-auto">
+
+      {{ range . }}
+      <article class="relative h-[320px] flex items-center flex-col  mt-[90px] bg-gray-100 p-5 ">
+        <div class="rounded-full w-[32px] h-[32px] bg-[#D6C4B8] absolute right-[40px] -top-[15px]"></div>
+        <h2 class="text-[#3D3D3F] text-[26px] font-normal">{{ .Title }}</h2>
+        <div class="flex items-center justify-start gap-7">
+        <p class="text-[#3D3D3F] text-[19px] font-normal">${{ .CurrentPrice }}.00</p>
+        <p class="text-[#A9A7A6] text-[15px] font-normal">${{ .PreviousPrice }}.00</p>
+        </div> 
+        <img class="w-[170px] h-[234px] -bottom-[100px] left-[30%] absolute" src="/images/{{ .Image }}" fetchpriority="high" decoding="sync">
+      </article>
+      {{ end }}
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
